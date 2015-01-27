@@ -1,0 +1,17 @@
+
+
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <h3><%= link_to "SimpleCh", root_path, id: "logo" %> </h3>
+      <nav>
+        <ul class="nav pull-right", id:"board-list-short">
+          <li><h4>Boards: </h4></li>
+          <%  @board_list.each do |el| %>
+            <li><%= link_to "/ "+el.tag+" /", tag_path(el.tag) , title: el.long_name, rel: 'tooltip'%></li>
+          <% end %>  
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
