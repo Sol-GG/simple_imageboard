@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127104334) do
+ActiveRecord::Schema.define(version: 20150128081943) do
 
   create_table "boards", force: true do |t|
     t.string   "tag"
@@ -21,5 +21,14 @@ ActiveRecord::Schema.define(version: 20150127104334) do
   end
 
   add_index "boards", ["tag"], name: "index_boards_on_tag", unique: true
+
+  create_table "topics", force: true do |t|
+    t.string   "caption"
+    t.integer  "board_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "topics", ["board_id", "updated_at"], name: "index_topics_on_board_id_and_updated_at"
 
 end
