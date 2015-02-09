@@ -2,9 +2,15 @@ require 'spec_helper'
 
 describe Board do
 
-  before{ @board = Board.new(long_name: "Bread", tag: "b") }
+  before do 
+    @board = Board.new(long_name: "Bread", tag: "b")
+    @board.save 
+    @topic=@board.topics.new(caption: "Lol")
+    @topic.save
+    #FactoryGirl.create(:topic, board: @board) 
+  end
   #@board.topics.build(caption: "Bread")
-  let(:topic) { FactoryGirl.create(:topic, board: @board) }
+  
   subject { @board }
 
   it { should respond_to(:long_name) }
@@ -25,23 +31,20 @@ describe Board do
 
   describe "when tag already exists" do
   	before do
-      other_board = @board.dup
-      other_board.tag = @board.tag.upcase
-      other_board.save
+      @other_board = @board.dup
+      @other_board.tag = @board.tag.upcase
+      #other_board.save
     end
+    subject { @other_board }
 
     it { should_not be_valid }
   end
 
   describe "when board is destroyed" do
     it "should destroy associated threads" do
-      #topics = @board.topics.to_a
-      topics = Topic.all
+      expect(Topic.where(id: @topic.id)).not_to be_empty
       @board.destroy
-      expect(topics).not_to be_empty
-      topics.each do |topic|
-        expect(Topic.where(id: topic.id)).not_to be_empty
-      end
+      expect(Topic.where(id: @topic.id)).to be_empty
     end
   end
 

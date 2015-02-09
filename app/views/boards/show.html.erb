@@ -4,14 +4,7 @@
 <div class="span8">
     <% if @board.topics.any? %>
       <ol class="threads">
-        <% @board.topics.each do |topic| %>
-        	<li>
-			  <span class="caption"><%= wrap(topic.caption) %></span>
-			  <span class="timestamp">
-			    Posted <%= time_ago_in_words(topic.created_at) %> ago.
-			  </span>
-			</li>
-        <% end %>
+        <%= render @topics %>
       </ol>
     <% end %>
 </div>
