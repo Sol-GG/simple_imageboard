@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <%= render 'layouts/header' %>
+<div class="lame_spacer"/>
+<% flash.each do |key, value| %>
+	<div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 <body>
 <%= yield %>
 <%= debug(params) if Rails.env.development? %>

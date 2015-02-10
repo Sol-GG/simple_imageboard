@@ -5,6 +5,7 @@ class BoardsController < ApplicationController
   		redirect_to root_path
   	else
   		@topics=@board.topics.all()
+  		@new_topic = @board.topics.build
   	end
   end
 end
