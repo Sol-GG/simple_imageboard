@@ -8,11 +8,11 @@
 </div>
 
 <div>
-    <% if @board.topics.any? %>
-      <ol class="threads">
-        <%= render @topics %>
-      </ol>
-    <% end %>
+	<div class="thread-pagination"><%= will_paginate @topics %></div>
+    <ol class="threads">
+      <%= render @topics %>
+    </ol>
+    <div class="thread-pagination"><%= will_paginate @topics %></div>
 </div>
 
 

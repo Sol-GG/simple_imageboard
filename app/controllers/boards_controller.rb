@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   	if !@board
   		redirect_to root_path
   	else
-  		@topics=@board.topics.all()
+  		@topics=@board.topics.paginate(page: params[:page], per_page: 10)
   		@new_topic = @board.topics.build
   	end
   end
