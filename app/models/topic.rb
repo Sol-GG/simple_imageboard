@@ -1,4 +1,5 @@
 class Topic < ActiveRecord::Base
+	has_many :posts
 	belongs_to :board
 	validates :board, presence: true 
 	default_scope -> { order('updated_at DESC') }
