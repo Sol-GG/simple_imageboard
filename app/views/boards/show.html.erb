@@ -1,14 +1,8 @@
 <% provide(:title, @board.long_name + " - SimpleCh") %>
 <h1 class="pan10">/<%= @board.tag %>/ - <%= @board.long_name %></h1>
-<h3 class="form_show_link" style="text-align: center;">New Thread</h3>
-<div class="container">
-	<div id="new_thread_bar" class="span8 offset2">
-	    <%= render 'new_topic_form' %>
-	</div>
-</div>
+	<%= render 'new_topic_form' %>
 
 <div>
-	<div class="thread-pagination"><%= will_paginate @topics %></div>
     <ol class="threads">
       <%= render @topics %>
     </ol>

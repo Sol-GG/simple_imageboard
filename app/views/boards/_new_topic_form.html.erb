@@ -1,12 +1,19 @@
-<%= form_for(@new_topic) do |f| %>
-  <div class="row">
-  	<div class="span1">
-  		<b>Caption</b>
-  	</div>
-    <%= f.text_field :caption, placeholder: "Thread caption..", class:"span5" %>
-    <%= f.submit "Post", class: "btn pull-right span2" %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :board_id, :value => @board.id  %>
-  </div>
-<% end %>
+<h4 class="form_show_link"  onclick="showTopicForm()" style="text-align: center; text-decoration: underline; cursor: pointer;">
+  New Thread
+</h4>
+<div id="new_topic_bar">
+  <%= form_for(@new_topic) do |f| %>
+    <div class="row">
+    	<div style="padding-top: 3px;" class="span1">
+    		<b>Caption</b>
+    	</div>
+      <%= f.text_field :caption, placeholder: "Thread caption..", class:"span7" %>
+      <%= f.submit "Post", class: "btn span2 pull-right" %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :board_id, :value => @board.id  %>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+</div>

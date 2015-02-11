@@ -5,3 +5,18 @@
 .thread-pagination {
 	text-align: center;
 }
+
+#new_topic_bar {
+  background-color: #d0e4fe;
+
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin:0 20% 0 20%;
+  width:60%;
+}
