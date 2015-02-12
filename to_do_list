@@ -2,5 +2,5 @@
 +Add topic pagination
 +Hiding topic creation form
 +Add posts model
-Adding a post to topic + modifying topic view
++-Adding a post to topic + modifying topic view (ToDo: fix validations)
 Add topic page

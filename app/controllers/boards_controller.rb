@@ -6,6 +6,7 @@ class BoardsController < ApplicationController
   	else
   		@topics=@board.topics.paginate(page: params[:page], per_page: 10)
   		@new_topic = @board.topics.build
+  		@new_topic.posts.new
   	end
   end
 end

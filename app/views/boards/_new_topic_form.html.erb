@@ -13,6 +13,14 @@
     <div class="field">
       <%= f.hidden_field :board_id, :value => @board.id  %>
     </div>
+    <%= f.fields_for :posts do |ff| %>
+      <div class="row">
+        <div style="padding-top: 3px;" class="span1">
+          <b>Post</b>
+        </div>
+        <%= ff.text_area :content, placeholder: "Origial post..", class:"span7" %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 <div class="row">
