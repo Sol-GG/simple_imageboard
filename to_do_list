@@ -3,4 +3,9 @@
 +Hiding topic creation form
 +Add posts model
 +-Adding a post to topic + modifying topic view (ToDo: fix validations)
-Add topic page
++Add topic page
++Show all posts on topic page
+Add links to topics on board page
+Post creation form and logic
+Show thread previews on board page
+Add images to threads

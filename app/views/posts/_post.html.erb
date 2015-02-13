@@ -1,0 +1,17 @@
+<% if post==post.topic.posts.first %>
+	<li class="post_frame_first">
+	<span class="post_caption">
+		<%= post.topic.caption %>
+	</span>	
+<% else %>
+	<li class="post_frame">
+<% end %>
+		<span class="post_timestamp">
+			Posted <%= time_ago_in_words(post.created_at) %> ago.
+		</span>	
+		<span class="post_number">
+			<%= link_to "№"+post.id.to_s, "/"+post.topic.board.tag+"/"+post.id.to_s %>
+		</span>
+		</br>
+		<span class="post_value"><%= post.content %></span>
+	</li>

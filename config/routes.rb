@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   root  'static_pages#home'
   match '/:tag',  :to => 'boards#show', :as => :tag,    via: 'get'
+  match '/:tag/:post', to: 'topics#show',  via: 'get'
   resources :topics, only: :create
 
   # The priority is based upon order of creation: first created -> highest priority.

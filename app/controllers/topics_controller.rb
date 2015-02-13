@@ -3,17 +3,26 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     if @topic.save
-      
       flash[:success] = "Thread successfuly created!"
-      #flash[:success] = topic_params
     else
       @topic.errors.full_messages.each do |error_msg| 
         flash[:error] = error_msg
-        #flash[:error] = topic_params
       end
     end
-    #flash[:error] = @topic
     redirect_to '/'+Board.find(@topic.board_id).tag
+  end
+
+
+  def show
+    board=Board.find_by(tag: params[:tag])
+    post = Post.find_by(id: params[:post])
+    if(board && post && post.topic.board==board)
+      @full=true
+      @topic=post.topic
+    else
+      flash[:error] = "Thread not found"
+      redirect_to '/' + if board then board.tag else "" end
+    end
   end
 
 

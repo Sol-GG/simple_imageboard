@@ -1,11 +1,14 @@
-<li>
-	<span class="caption"><%= wrap(topic.caption) %></span>
-	<span class="timestamp">
-		Posted <%= time_ago_in_words(topic.created_at) %> ago.
-	</span>
-	</br>
-	<ul class= "pull-right">HI</ul>
-	<% if(topic.posts.size>0) %>
-		<span class="post_value"><%= wrap(topic.posts.last.content) %></span>
-	<% end %>
-</li>
+<% if @full %>
+	<% @posts=@topic.posts.all[1..-1] %>
+	<% @board=topic.board %>
+	<%= render 'boards/board_header' %>
+<% end %>
+<%= render topic.posts.first %>
+
+<% if @full %>
+	<% @posts=@topic.posts.all[1..-1] %>
+<% end %>
+
+<% if @posts %>
+	<%= render @posts %>
+<% end %>

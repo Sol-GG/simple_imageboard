@@ -1,5 +1,5 @@
 <% provide(:title, @board.long_name + " - SimpleCh") %>
-<h1 class="pan10">/<%= @board.tag %>/ - <%= @board.long_name %></h1>
+<%= render 'board_header' %>
 	<%= render 'new_topic_form' %>
 
 <div>
